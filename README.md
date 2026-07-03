@@ -80,21 +80,25 @@ coupon-design/
 
 ## 部署
 
-### Cloudflare Pages(推荐)
+### GitHub Pages(默认)
 
-[.github/workflows/deploy.yml](./.github/workflows/deploy.yml) 已预置:
+[.github/workflows/deploy.yml](./.github/workflows/deploy.yml) 已预置,零 secrets 即可跑通:
 
-1. 每次 PR 会跑 `pnpm build`,产物作为 artifact 保存 7 天。
-2. `main` 合并后,`cloudflare/wrangler-action@v3` 推送 `docs/.vitepress/dist` 到 Pages 项目 `coupon-design`。
+1. 每次 push / PR 都会跑 `pnpm docs:build`
+2. `main` 合并后,产物通过 `actions/deploy-pages@v4` 部署到项目页
+3. Base path 由 workflow 自动注入(`DOCS_BASE=/<repo>/`),本地开发不受影响
 
-需要在 GitHub 仓库配置:
+**首次启用步骤**:
 
-- **Secrets**:`CLOUDFLARE_API_TOKEN`(权限:Account.Cloudflare Pages.Edit)、`CLOUDFLARE_ACCOUNT_ID`
-- **Variables**(可选):`SITE_URL`、`REPO_URL`
+1. 在 GitHub 仓库 **Settings → Pages** 把 "Source" 切换为 **GitHub Actions**
+2. 首次 push 到 `main` 后,Actions 会自动构建 + 部署
+3. 访问 `https://<owner>.github.io/<repo>/`
+
+如果换成用户主页(`<user>.github.io`)或自定义域名部署,把 workflow 中的 `DOCS_BASE` 改成 `/`,并按 GitHub 文档配 CNAME。
 
 ### 其他平台
 
-产物是纯静态,`docs/.vitepress/dist` 直接扔到 Vercel / Netlify / Nginx / R2 静态托管都可以。
+产物是纯静态,`docs/.vitepress/dist` 直接扔到 Cloudflare Pages / Vercel / Netlify / Nginx / R2 静态托管都可以。CF Pages 的 workflow 版本可以从 git 历史里恢复。
 
 ## 品牌 / 主题
 
