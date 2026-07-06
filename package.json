@@ -12,9 +12,6 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf docs/.vitepress/dist docs/.vitepress/cache"
   },

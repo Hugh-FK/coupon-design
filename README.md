@@ -45,7 +45,7 @@ coupon-design/
 ├─ .editorconfig
 ├─ README.md                    # 本文件
 └─ .github/workflows/
-   └─ deploy.yml                # PR 构建 + main 部署到 Cloudflare Pages
+   └─ deploy.yml                # PR 构建 + main 部署到 GitHub Pages
 ```
 
 未来在根目录同级添加代码目录(monorepo 布局):
@@ -84,7 +84,7 @@ coupon-design/
 
 [.github/workflows/deploy.yml](./.github/workflows/deploy.yml) 已预置,零 secrets 即可跑通:
 
-1. 每次 push / PR 都会跑 `pnpm docs:build`
+1. 每次 push / PR 都会跑 `pnpm build`
 2. `main` 合并后,产物通过 `actions/deploy-pages@v4` 部署到项目页
 3. Base path 由 workflow 自动注入(`DOCS_BASE=/<repo>/`),本地开发不受影响
 
@@ -111,12 +111,11 @@ coupon-design/
 ## Node & 包管理
 
 - Node 版本锁定在 [.nvmrc](./.nvmrc)(`nvm use` 即可)
-- 包管理器锁定在 `package.json` 的 `packageManager` 字段(pnpm 9)
-- CI 使用 `pnpm install --frozen-lockfile`
+- pnpm 版本锁定在 `package.json` → `packageManager`(`pnpm@9.15.0`);本地执行 `corepack enable` 后自动对齐
+- CI 通过 `pnpm/action-setup` 读取同一字段,并以 `pnpm install --frozen-lockfile` 安装依赖
 
 ## 贡献
 
 1. 在 `docs/` 下的对应 `.md` 修改
 2. `pnpm dev` 本地预览
 3. PR 到 `main`,等 CI 构建通过再合并
-# coupon-design
