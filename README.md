@@ -88,11 +88,24 @@ coupon-design/
 2. `main` 合并后,产物通过 `actions/deploy-pages@v4` 部署到项目页
 3. Base path 由 workflow 自动注入(`DOCS_BASE=/<repo>/`),本地开发不受影响
 
-**首次启用步骤**:
+**首次启用步骤**(必须先完成,否则 deploy 会 404):
 
-1. 在 GitHub 仓库 **Settings → Pages** 把 "Source" 切换为 **GitHub Actions**
-2. 首次 push 到 `main` 后,Actions 会自动构建 + 部署
-3. 访问 `https://<owner>.github.io/<repo>/`
+1. 打开 [Settings → Pages](https://github.com/Hugh-FK/coupon-design/settings/pages)
+2. **Build and deployment → Source** 选择 **GitHub Actions**(不是 "Deploy from a branch")
+3. 重新运行失败的 workflow,或再 push 一次到 `main`
+4. 访问 `https://hugh-fk.github.io/coupon-design/`
+
+也可用 CLI 一次性启用(需仓库 admin 权限):
+
+```bash
+gh api -X POST repos/Hugh-FK/coupon-design/pages -f build_type=workflow
+gh workflow run deploy.yml --ref main
+```
+
+**常见错误**:
+
+- `deploy` 报 `HttpError: Not Found` → Pages 尚未启用,按上面步骤 1–2 处理
+- workflow 显示 success 但站点仍 404 → 检查 `deploy` job 是否被 **skipped**;手动触发(`workflow_dispatch`)时旧版 workflow 只跑 build 不部署,需 push 修复后的 workflow 到 `main` 后再触发
 
 如果换成用户主页(`<user>.github.io`)或自定义域名部署,把 workflow 中的 `DOCS_BASE` 改成 `/`,并按 GitHub 文档配 CNAME。
 
