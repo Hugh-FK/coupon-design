@@ -59,7 +59,8 @@ export default defineConfig({
           { text: '07 SEO 策略', link: '/07-seo-strategy' },
           { text: '08 社区与 UGC', link: '/08-community-ugc' },
           { text: '09 联盟集成', link: '/09-affiliate-integration' },
-          { text: '12 浏览器插件', link: '/12-browser-extension' }
+          { text: '12 浏览器插件', link: '/12-browser-extension' },
+          { text: '13 商家内容生产', link: '/13-merchant-content-pipeline' }
         ]
       },
       {
@@ -112,7 +113,8 @@ export default defineConfig({
           { text: '07. SEO 策略', link: '/07-seo-strategy' },
           { text: '08. 社区与 UGC', link: '/08-community-ugc' },
           { text: '09. 联盟集成', link: '/09-affiliate-integration' },
-          { text: '12. 浏览器插件', link: '/12-browser-extension' }
+          { text: '12. 浏览器插件', link: '/12-browser-extension' },
+          { text: '13. 商家内容生产', link: '/13-merchant-content-pipeline' }
         ]
       },
       {

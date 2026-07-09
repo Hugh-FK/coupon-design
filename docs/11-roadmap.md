@@ -100,7 +100,8 @@
 
 **目标**:内容 / SEO / 社区种子铺开,准备开门迎客。
 
-- [ ] top 500 商家页运营优化:每家 200-500 字商家介绍(LLM 生成 + 人工润色 100 家)
+- [ ] top 500 商家页运营优化:每家 About + 核销流程 + FAQ(走 [13-merchant-content-pipeline.md](./13-merchant-content-pipeline.md) 流水线,LLM 生成 + 人工审核 top 100 家)
+- [ ] Admin 审核 UI:draft 编辑 / source 引用 / fact-check 报告
 - [ ] 20 品类页编辑内容(400-800 字/页)
 - [ ] Blog 首批 10 篇 SEO 长文(如 "10 Nike Discount Codes You Should Try in 2026")
 - [ ] 编辑手写 200 条 offer 评论(seed 社区调性,标 verified staff)

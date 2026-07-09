@@ -85,6 +85,11 @@ features:
     details: 结账页自动填码、商家页横幅、主站账号打通,预期贡献 T+6M 收入的 30%。不劫持 cookie,合规优先。
     link: /12-browser-extension
     linkText: 插件设计
+  - icon: 📝
+    title: 商家内容生产
+    details: 多源聚合 → LLM 起草(带引用)→ 事实核查 → 分层人审 → 定期刷新。5000 商家 About + 核销流程 + FAQ 一次做对。
+    link: /13-merchant-content-pipeline
+    linkText: 内容流水线
   - icon: 🛡️
     title: 合规完备
     details: GDPR / CCPA / FTC / DMCA / DSA 全覆盖,Cookie Consent、DSAR 流程、上线前 checklist 一并给出。

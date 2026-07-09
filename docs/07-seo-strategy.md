@@ -128,7 +128,7 @@ Sitemap 分片:
 
 ### 6.1 编辑内容(必须有,别只堆爬虫数据)
 
-- 每个 top 500 商家:200-500 字商家介绍(LLM 起草 + 人工润色)
+- 每个 top 500 商家:200-500 字商家介绍 + 5-8 步核销流程 + FAQ,详细流水线见 [13-merchant-content-pipeline.md](./13-merchant-content-pipeline.md)
 - 每个品类页:400-800 字品类导购
 - Blog:每周 2-3 篇长文攻略,如 "10 Ways to Save at Nike in 2026"
 
